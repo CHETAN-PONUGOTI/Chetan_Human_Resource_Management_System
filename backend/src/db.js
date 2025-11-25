@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const dotenv = require('dotenv');
+const fs = require('fs');
 
 dotenv.config();
 
@@ -13,6 +14,9 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
             mysql_native_password: () => Buffer.from(process.env.DB_PASS || '')
         }
     },
+    ssl : {
+        ca: fs.readFileSync(process.env.CA)
+    }
 });
 
 const db = {};

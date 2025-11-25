@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api', 
+    baseURL: 'https://chetan-human-resource-management-system.onrender.com/api', 
 });
 
 // Request interceptor to add the Authorization header
